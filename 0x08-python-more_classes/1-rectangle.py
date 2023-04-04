@@ -1,8 +1,8 @@
 class Rectangle:
-    """Represent a rectangle."""
+    """This module defines a Rectangle class."""
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle."""
+        """Represent a rectangle."""
         self._width = 0
         self._height = 0
         self.width = width
