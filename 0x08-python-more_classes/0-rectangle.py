@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-Represent a rectangle.
+This module defines a Rectangle class.
 """
 
 
 class Rectangle:
-    """Initialize a new Rectangle."""
+    """Represent a rectangle."""
     pass
