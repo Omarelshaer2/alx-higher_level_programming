@@ -1,50 +1,94 @@
 #!/usr/bin/python3
 """
-Defines a class Rectangle
+This module defines a Rectangle class that represents a geometric rectangle.
 """
 
 
 class Rectangle:
-    """Representation of a rectangle"""
+    """
+    A Rectangle object represents a 2D rectangle with a given width and height.
+    """
+
     def __init__(self, width=0, height=0):
-        """Initializes the rectangle"""
-        self.width = width
-        self.height = height
+        """
+        Initializes a new Rectangle instance with the given width and height.
+
+        :param width: The width of the rectangle.
+        :type width: int
+        :param height: The height of the rectangle.
+        :type height: int
+        """
+        self._width = width
+        self._height = height
 
     @property
     def width(self):
-        """getter for the private instance attribute width"""
-        return self.__width
+        """
+        Returns the width of the rectangle.
+
+        :return: The width of the rectangle.
+        :rtype: int
+        """
+        return self._width
 
     @width.setter
     def width(self, value):
-        """setter for the private instance attribute width"""
+        """
+        Sets the width of the rectangle to the given value.
+
+        :param value: The new width of the rectangle.
+        :type value: int
+        :raises TypeError: If the value is not an integer.
+        :raises ValueError: If the value is negative.
+        """
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = value
+        self._width = value
 
     @property
     def height(self):
-        """getter for the private instance attribute height"""
-        return self.__height
+        """
+        Returns the height of the rectangle.
+
+        :return: The height of the rectangle.
+        :rtype: int
+        """
+        return self._height
 
     @height.setter
     def height(self, value):
-        """setter for the private instance attribute height"""
+        """
+        Sets the height of the rectangle to the given value.
+
+        :param value: The new height of the rectangle.
+        :type value: int
+        :raises TypeError: If the value is not an integer.
+        :raises ValueError: If the value is negative.
+        """
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.__height = value
+        self._height = value
 
     def area(self):
-        """returns the area of the rectangle"""
-        return self.__width * self.__height
+        """
+        Returns the area of the rectangle.
+
+        :return: The area of the rectangle.
+        :rtype: int
+        """
+        return self._width * self._height
 
     def perimeter(self):
-        """returns the perimeter of the rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        """
+        Returns the perimeter of the rectangle.
+
+        :return: The perimeter of the rectangle.
+        :rtype: int
+        """
+        if self._width == 0 or self._height == 0:
             return 0
-        return (self.__width * 2) + (self.__height * 2)
+        return (self._width * 2) + (self._height * 2)
