@@ -1,106 +1,65 @@
-#!/usr/bin/python3
-"""
-This module defines a Rectangle class representing a two-dimensional rectangle
-"""
-
 class Rectangle:
     """
-    A rectangle with a given width and height
-
-    Attributes:
-        width (int): The width of the rectangle
-        height (int): The height of the rectangle
+    A 2D rectangle with width and height attributes.
     """
-    def __init__(self, width=0, height=0):
+    def __init__(self, w=0, h=0):
         """
-        Initializes a Rectangle object with a given width and height
-
-        Args:
-            width (int): The width of the rectangle (default 0)
-            height (int): The height of the rectangle (default 0)
+        Initializes a Rectangle object with width w and height h.
         """
-        self.__width = width
-        self.__height = height
+        self.w, self.h = w, h
 
     @property
-    def width(self):
+    def w(self):
         """
-        int: The width of the rectangle
+        The width of the rectangle.
         """
-        return self.__width
+        return self.__w
 
-    @width.setter
-    def width(self, value):
+    @w.setter
+    def w(self, v):
         """
-        Set the width of the rectangle
-
-        Args:
-            value (int): The new width of the rectangle
-
-        Raises:
-            TypeError: If value is not an integer
-            ValueError: If value is negative
+        Set the width of the rectangle to v.
         """
-        if type(value) is not int:
+        if type(v) is not int:
             raise TypeError("Width must be an integer")
-        if value < 0:
+        if v < 0:
             raise ValueError("Width must be non-negative")
-        self.__width = value
+        self.__w = v
 
     @property
-    def height(self):
+    def h(self):
         """
-        int: The height of the rectangle
+        The height of the rectangle.
         """
-        return self.__height
+        return self.__h
 
-    @height.setter
-    def height(self, value):
+    @h.setter
+    def h(self, v):
         """
-        Set the height of the rectangle
-
-        Args:
-            value (int): The new height of the rectangle
-
-        Raises:
-            TypeError: If value is not an integer
-            ValueError: If value is negative
+        Set the height of the rectangle to v.
         """
-        if type(value) is not int:
+        if type(v) is not int:
             raise TypeError("Height must be an integer")
-        if value < 0:
+        if v < 0:
             raise ValueError("Height must be non-negative")
-        self.__height = value
+        self.__h = v
 
     def area(self):
         """
-        Calculate the area of the rectangle
-
-        Returns:
-            int: The area of the rectangle
+        Calculate the area of the rectangle.
         """
-        return self.__width * self.__height
+        return self.__w * self.__h
 
     def perimeter(self):
         """
-        Calculate the perimeter of the rectangle
-
-        Returns:
-            int: The perimeter of the rectangle
+        Calculate the perimeter of the rectangle.
         """
-        if self.__width == 0 or self.__height == 0:
+        if self.__w == 0 or self.__h == 0:
             return 0
-        return (self.__width * 2) + (self.__height * 2)
+        return (self.__w * 2) + (self.__h * 2)
 
     def __str__(self):
         """
-        Return a string representation of the rectangle
-
-        Returns:
-            str: A string representation of the rectangle
+        Return a string representation of the rectangle.
         """
-        string = ""
-        if self.__width != 0 and self.__height != 0:
-            string += "\n".join("#" * self.__width
-                                for j in range(self.__height))
-        return string
+        return "\n".join("#" * self.__w for _ in range(self.__h))
