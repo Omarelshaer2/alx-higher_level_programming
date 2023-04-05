@@ -1,62 +1,103 @@
 #!/usr/bin/python3
 """
-Defines a class Rectangle
+This module defines a Rectangle class.
 """
 
 
 class Rectangle:
-    """Representation of a rectangle"""
+    """
+    A class to represent a rectangle object.
+    """
     def __init__(self, width=0, height=0):
-        """Initializes the rectangle"""
-        self.width = width
-        self.height = height
+        """
+        Initialize a new Rectangle object.
+
+        :param width: An integer representing the width of the rectangle.
+        :param height: An integer representing the height of the rectangle.
+        """
+        self._width = width
+        self._height = height
 
     @property
     def width(self):
-        """getter for the private instance attribute width"""
-        return self.__width
+        """
+        Get the width of the rectangle.
+
+        :return: An integer representing the width of the rectangle.
+        """
+        return self._width
 
     @width.setter
     def width(self, value):
-        """setter for the private instance attribute width"""
-        if type(value) is not int:
+        """
+        Set the width of the rectangle.
+
+        :param value: An integer representing the width of the rectangle.
+        :raise TypeError: If value is not an integer.
+        :raise ValueError: If value is less than 0.
+        """
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = value
+        self._width = value
 
     @property
     def height(self):
-        """getter for the private instance attribute height"""
-        return self.__height
+        """
+        Get the height of the rectangle.
+
+        :return: An integer representing the height of the rectangle.
+        """
+        return self._height
 
     @height.setter
     def height(self, value):
-        """setter for the private instance attribute height"""
-        if type(value) is not int:
+        """
+        Set the height of the rectangle.
+
+        :param value: An integer representing the height of the rectangle.
+        :raise TypeError: If value is not an integer.
+        :raise ValueError: If value is less than 0.
+        """
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.__height = value
+        self._height = value
 
     def area(self):
-        """returns the area of the rectangle"""
-        return self.__width * self.__height
+        """
+        Calculate the area of the rectangle.
+
+        :return: An integer representing the area of the rectangle.
+        """
+        return self._width * self._height
 
     def perimeter(self):
-        """returns the perimeter of the rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        """
+        Calculate the perimeter of the rectangle.
+
+        :return: An integer representing the perimeter of the rectangle.
+        """
+        if self._width == 0 or self._height == 0:
             return 0
-        return (self.__width * 2) + (self.__height * 2)
+        return 2 * (self._width + self._height)
 
     def __str__(self):
-        """returns printable string representation of the rectangle"""
-        string = ""
-        if self.__width != 0 and self.__height != 0:
-            string += "\n".join("#" * self.__width
-                                for j in range(self.__height))
-        return string
+        """
+        Get a string representation of the rectangle.
+
+        :return: A string representing the rectangle.
+        """
+        if self._width == 0 or self._height == 0:
+            return ""
+        return "\n".join("#" * self._width for _ in range(self._height))
 
     def __repr__(self):
-        """returns a string representation of the rectangle for reproduction"""
-        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+        """
+        Get a string representation of the rectangle that can be used to reproduce it.
+
+        :return: A string representing the rectangle.
+        """
+        return f"Rectangle({self._width}, {self._height})"
