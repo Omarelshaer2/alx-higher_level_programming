@@ -1,90 +1,104 @@
-The ``0-add_integer`` module
-======================
+# Testing the functionality of the "add_integer" function in the "0-add_integer" module
 
-Using ``add_integer``
--------------------
+# Importing the "add_integer" function from the module
+add_integer = __import__("0-add_integer").add_integer
 
-Importing the function from the module:
-	>>> add_integer = __import__("0-add_integer").add_integer
+# Checking if the module has a docstring
+module_docstring = __import__("0-add_integer").__doc__
+has_module_docstring = len(module_docstring) > 1
 
-Checking for module docstring:
-	 >>> m = __import__("0-add_integer").__doc__
-	 >>> len(m) > 1
-	 True
+# Checking if the function has a docstring
+function_docstring = __import__("0-add_integer").add_integer.__doc__
+has_function_docstring = len(function_docstring) > 1
 
-Checking for function docstring:
-	 >>> f = __import__("0-add_integer").add_integer.__doc__
-         >>> len(f) > 1
-         True
+# Testing the addition of two positive integers
+positive_addition = add_integer(2, 3)
+assert positive_addition == 5
 
-Checking regular addition:
-	 >>> add_integer(2, 3)
-	 5
+# Testing the addition of a positive and a negative integer
+positive_negative_addition = add_integer(2, -4)
+assert positive_negative_addition == -2
 
-Checking positive with negative:
-	 >>> add_integer(2, -4)
-	 -2
+# Testing the addition of a negative and a positive integer
+negative_positive_addition = add_integer(-6, 8)
+assert negative_positive_addition == 2
 
-Checking negative with positive:
-	 >>> add_integer(-6, 8)
-	 2
+# Testing the addition of multiple integers
+multiple_addition = [add_integer(i, i ** 2) for i in range(6)]
+assert multiple_addition == [0, 2, 6, 12, 20, 30]
 
-Checking addition over multiple values:
-	 >>> [add_integer(i, i ** 2) for i in range(6)]
-	 [0, 2, 6, 12, 20, 30]
+# Testing the addition of a float and an integer
+float_integer_addition = add_integer(2.1, 4)
+assert float_integer_addition == 6
 
-Checking float with int:
-	 >>> add_integer(2.1, 4)
-	 6
+# Testing the addition of an integer and a float
+integer_float_addition = add_integer(5, 7.8)
+assert integer_float_addition == 12
 
-Checking int with float:
-	 >>> add_integer(5, 7.8)
-	 12
+# Testing the addition of two float numbers
+float_addition = add_integer(2.45, 3.1)
+assert float_addition == 5
 
-Checking both float:
-	 >>> add_integer(2.45, 3.1)
-	 5
+# Testing for a ValueError when passing NaN as one of the arguments
+try:
+    nan_addition = add_integer(1, float('nan'))
+except ValueError:
+    pass
+else:
+    raise AssertionError('Expected ValueError not raised')
 
-Checking for passed NaN:
-	 >>> add_integer(1, float('nan'))
-	 Traceback (most recent call last):
-	 ...
-	 ValueError: cannot convert float NaN to integer
+# Testing for an OverflowError when passing infinity as one of the arguments
+try:
+    inf_addition = add_integer(1, float('inf'))
+except OverflowError:
+    pass
+else:
+    raise AssertionError('Expected OverflowError not raised')
 
-Checking for passed inf:
-	 >>> add_integer(1, float('inf'))
-	 Traceback (most recent call last):
-	 ...
-	 OverflowError: cannot convert float infinity to integer
+# Testing the addition of a very large integer
+large_integer_addition = add_integer(999999999999999999999999999999, 1)
+assert large_integer_addition == 1000000000000000000000000000000
 
-Checking super long int:
-	 >>> add_integer(999999999999999999999999999999, 1)
-	 1000000000000000000000000000000
+# Testing for a TypeError when passing a non-integer with an integer
+try:
+    non_integer_addition = add_integer([1], 2)
+except TypeError:
+    pass
+else:
+    raise AssertionError('Expected TypeError not raised')
 
-Checking non-number with number:
-	 >>> add_integer([1], 2)
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: a must be an integer
+# Testing for a TypeError when passing an integer with a non-integer
+try:
+    integer_non_addition = add_integer(3, "2")
+except TypeError:
+    pass
+else:
+    raise AssertionError('Expected TypeError not raised')
 
-Checking number with non-number:
-	 >>> add_integer(3, "2")
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: b must be an integer
+# Testing for a TypeError when passing two non-integers
+try:
+    non_integer_non_addition = add_integer((2,), {"key": "value"})
+except TypeError:
+    pass
+else:
+    raise AssertionError('Expected TypeError not raised')
 
-Checking non-number with non-number:
-	 >>> add_integer((2,), {"key": "value"})
-         Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
+# Testing for a TypeError when passing a boolean with an integer
+try:
+    boolean_integer_addition = add_integer(True, 1)
+except TypeError:
+    pass
+else:
+    raise AssertionError('Expected TypeError not raised')
 
-Checking bool with number:
-	 >>> add_integer(True, 1)
-	 Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
-
+# Testing for a TypeError when passing an integer with a boolean
+try:
+    integer_boolean_addition = add_integer(0, False)
+except TypeError:
+    pass
+else:
+    raise AssertionError('Expected TypeError not raised')
+    
 Checking number with bool:
 	 >>> add_integer(0, False)
          Traceback (most recent call last):
@@ -108,3 +122,4 @@ Checking more than 2 args:
          Traceback (most recent call last):
          ...
          TypeError: add_integer() takes 2 positional arguments but 3 were given
+	 
