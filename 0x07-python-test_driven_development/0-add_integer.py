@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-This module defines a function to add two numbers together, with input validation.
+This module defines a function to add two numbers together, input validation.
 
-The function add_integer(a, b) takes two arguments, a and b, and returns their sum.
-If either argument is not an integer or a float, a TypeError is raised. Floats are
+function add_integer(a, b) takes arguments, a and b, and returns their sum.
+If argument is not an integer or float, TypeError is raised. Floats are
 cast to integers before addition.
 """
 
 
 def add_integer(a, b):
-    """Returns the sum of two numbers a and b, after type conversion if necessary."""
+    """Returns the numbers sum a and b, after type conversion if necessary."""
     if type(a) is not int and type(a) is not float:
         raise TypeError("Input a must be a number")
     if type(b) is not int and type(b) is not float:
