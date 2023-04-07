@@ -1,109 +1,103 @@
-The ``0-add_integer`` module
-======================
-
-Using ``add_integer``
--------------------
-
-Importing the function from the module:
+# Import the add_integer function from the 0-add_integer module
 	>>> add_integer = __import__("0-add_integer").add_integer
 
-Checking for module docstring:
+# Check if the module has a docstring
 	 >>> m = __import__("0-add_integer").__doc__
 	 >>> len(m) > 1
 	 True
 
-Checking for function docstring:
+# Check if the function has a docstring
 	 >>> f = __import__("0-add_integer").add_integer.__doc__
          >>> len(f) > 1
          True
 
-Checking regular addition:
+# Test addition with positive integers
 	 >>> add_integer(2, 3)
 	 5
 
-Checking positive with negative:
+# Test addition with positive and negative integers
 	 >>> add_integer(2, -4)
 	 -2
 
-Checking negative with positive:
+# Test addition with negative and positive integers
 	 >>> add_integer(-6, 8)
 	 2
 
-Checking addition over multiple values:
+# Test addition with multiple values
 	 >>> [add_integer(i, i ** 2) for i in range(6)]
 	 [0, 2, 6, 12, 20, 30]
 
-Checking float with int:
+# Test addition with float and int
 	 >>> add_integer(2.1, 4)
 	 6
 
-Checking int with float:
+# Test addition with int and float
 	 >>> add_integer(5, 7.8)
 	 12
 
-Checking both float:
+# Test addition with both float
 	 >>> add_integer(2.45, 3.1)
 	 5
 
-Checking for passed NaN:
+# Test addition with NaN
 	 >>> add_integer(1, float('nan'))
 	 Traceback (most recent call last):
 	 ...
 	 ValueError: cannot convert float NaN to integer
 
-Checking for passed inf:
+# Test addition with infinity
 	 >>> add_integer(1, float('inf'))
 	 Traceback (most recent call last):
 	 ...
 	 OverflowError: cannot convert float infinity to integer
 
-Checking super long int:
+# Test addition with super long int
 	 >>> add_integer(999999999999999999999999999999, 1)
 	 1000000000000000000000000000000
 
-Checking non-number with number:
+# Test addition with non-integer and integer
 	 >>> add_integer([1], 2)
 	 Traceback (most recent call last):
 	 ...
 	 TypeError: a must be an integer
 
-Checking number with non-number:
+# Test addition with integer and non-integer
 	 >>> add_integer(3, "2")
 	 Traceback (most recent call last):
 	 ...
 	 TypeError: b must be an integer
 
-Checking non-number with non-number:
+# Test addition with non-integer and non-integer
 	 >>> add_integer((2,), {"key": "value"})
          Traceback (most recent call last):
          ...
          TypeError: a must be an integer
 
-Checking bool with number:
+# Test addition with boolean and integer
 	 >>> add_integer(True, 1)
 	 Traceback (most recent call last):
          ...
          TypeError: a must be an integer
 
-Checking number with bool:
+# Test addition with integer and boolean
 	 >>> add_integer(0, False)
          Traceback (most recent call last):
          ...
          TypeError: b must be an integer
 
-Checking no args:
+# Test addition with no arguments
 	 >>> add_integer()
 	 Traceback (most recent call last):
 	 ...
 	 TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
 
-Checking one arg:
+# Test addition with one argument
 	 >>> add_integer(1)
 	 Traceback (most recent call last):
          ...
 	 TypeError: add_integer() missing 1 required positional argument: 'b'
 
-Checking more than 2 args:
+# Test addition with more than two arguments
 	 >>> add_integer(1, 2, 3)
          Traceback (most recent call last):
          ...
