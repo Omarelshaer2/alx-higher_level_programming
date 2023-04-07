@@ -1,103 +1,103 @@
-# Import the add_integer function from the 0-add_integer module
+Import the add_integer function from the 0-add_integer module
 	>>> add_integer = __import__("0-add_integer").add_integer
 
-# Check if the module has a docstring
+Check if the module has a docstring
 	 >>> m = __import__("0-add_integer").__doc__
 	 >>> len(m) > 1
 	 True
 
-# Check if the function has a docstring
+Check if the function has a docstring
 	 >>> f = __import__("0-add_integer").add_integer.__doc__
          >>> len(f) > 1
          True
 
-# Test addition with positive integers
+Test addition with positive integers
 	 >>> add_integer(2, 3)
 	 5
 
-# Test addition with positive and negative integers
+Test addition with positive and negative integers
 	 >>> add_integer(2, -4)
 	 -2
 
-# Test addition with negative and positive integers
+Test addition with negative and positive integers
 	 >>> add_integer(-6, 8)
 	 2
 
-# Test addition with multiple values
+Test addition with multiple values
 	 >>> [add_integer(i, i ** 2) for i in range(6)]
 	 [0, 2, 6, 12, 20, 30]
 
-# Test addition with float and int
+Test addition with float and int
 	 >>> add_integer(2.1, 4)
 	 6
 
-# Test addition with int and float
+Test addition with int and float
 	 >>> add_integer(5, 7.8)
 	 12
 
-# Test addition with both float
+Test addition with both float
 	 >>> add_integer(2.45, 3.1)
 	 5
 
-# Test addition with NaN
+Test addition with NaN
 	 >>> add_integer(1, float('nan'))
 	 Traceback (most recent call last):
 	 ...
 	 ValueError: cannot convert float NaN to integer
 
-# Test addition with infinity
+Test addition with infinity
 	 >>> add_integer(1, float('inf'))
 	 Traceback (most recent call last):
 	 ...
 	 OverflowError: cannot convert float infinity to integer
 
-# Test addition with super long int
+Test addition with super long int
 	 >>> add_integer(999999999999999999999999999999, 1)
 	 1000000000000000000000000000000
 
-# Test addition with non-integer and integer
+Test addition with non-integer and integer
 	 >>> add_integer([1], 2)
 	 Traceback (most recent call last):
 	 ...
 	 TypeError: a must be an integer
 
-# Test addition with integer and non-integer
+Test addition with integer and non-integer
 	 >>> add_integer(3, "2")
 	 Traceback (most recent call last):
 	 ...
 	 TypeError: b must be an integer
 
-# Test addition with non-integer and non-integer
+Test addition with non-integer and non-integer
 	 >>> add_integer((2,), {"key": "value"})
          Traceback (most recent call last):
          ...
          TypeError: a must be an integer
 
-# Test addition with boolean and integer
+Test addition with boolean and integer
 	 >>> add_integer(True, 1)
 	 Traceback (most recent call last):
          ...
          TypeError: a must be an integer
 
-# Test addition with integer and boolean
+Test addition with integer and boolean
 	 >>> add_integer(0, False)
          Traceback (most recent call last):
          ...
          TypeError: b must be an integer
 
-# Test addition with no arguments
+Test addition with no arguments
 	 >>> add_integer()
 	 Traceback (most recent call last):
 	 ...
 	 TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
 
-# Test addition with one argument
+Test addition with one argument
 	 >>> add_integer(1)
 	 Traceback (most recent call last):
          ...
 	 TypeError: add_integer() missing 1 required positional argument: 'b'
 
-# Test addition with more than two arguments
+Test addition with more than two arguments
 	 >>> add_integer(1, 2, 3)
          Traceback (most recent call last):
          ...
