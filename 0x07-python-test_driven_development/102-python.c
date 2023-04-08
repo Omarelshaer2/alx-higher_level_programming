@@ -8,7 +8,7 @@
  *
  * This function prints information about the given Python string object.
  * It checks if the object is a valid string object and prints its type.
- * It then determines if the string is a compact ascii string or a compact unicode string.
+ * It determines if string is a compact ascii string or compact unicode.
  * It then prints the length and the value of the string.
  */
 void print_python_string(PyObject *p)
