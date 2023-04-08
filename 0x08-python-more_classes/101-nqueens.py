@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 """
-nqueens backtracking program to print the coordinates of n queens
-on an nxn grid such that they are all in non-attacking positions
+nqueens_backtracking.py: Finds all solutions
+to the n-queens problem using backtracking.
 """
-
-
 from sys import argv
 
 if __name__ == "__main__":
     a = []
+    # Ensure correct usage and input value
     if len(argv) != 2:
         print("Usage: nqueens N")
         exit(1)
-    if argv[1].isdigit() is False:
+    if not argv[1].isdigit():
         print("N must be a number")
         exit(1)
     n = int(argv[1])
@@ -20,43 +19,43 @@ if __name__ == "__main__":
         print("N must be at least 4")
         exit(1)
 
-    # initialize the answer list
+    # Initialize answer list
     for i in range(n):
         a.append([i, None])
 
-    def already_exists(y):
-        """check that a queen does not already exist in that y value"""
+    def queen_in_column(y):
+        """Checks if a queen already exists in the specified column."""
         for x in range(n):
             if y == a[x][1]:
                 return True
         return False
 
-    def reject(x, y):
-        """determines whether or not to reject the solution"""
-        if (already_exists(y)):
+    def is_solution(x, y):
+        """Checks if a given position is a valid solution."""
+        if queen_in_column(y):
             return False
         i = 0
-        while(i < x):
+        while (i < x):
             if abs(a[i][1] - y) == abs(i - x):
                 return False
             i += 1
         return True
 
-    def clear_a(x):
-        """clears the answers from the point of failure on"""
+    def clear_answers_from(x):
+        """Clears the answers from the point of failure onwards."""
         for i in range(x, n):
             a[i][1] = None
 
-    def nqueens(x):
-        """recursive backtracking function to find the solution"""
+    def n_queens_recursive(x):
+        """Recursive function to find all solutions."""
         for y in range(n):
-            clear_a(x)
-            if reject(x, y):
+            clear_answers_from(x)
+            if is_solution(x, y):
                 a[x][1] = y
-                if (x == n - 1):  # accepts the solution
-                    print(a)
+                if x == n - 1:
+                    print(a)  # Accepts solution
                 else:
-                    nqueens(x + 1)  # moves on to next x value to continue
+                    n_queens_recursive(x + 1)  # Moves on to next x value
 
-    # start the recursive process at x = 0
-    nqueens(0)
+    # Start recursive process at x = 0
+    n_queens_recursive(0)
