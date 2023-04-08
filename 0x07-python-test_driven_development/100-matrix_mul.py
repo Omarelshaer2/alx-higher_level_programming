@@ -1,31 +1,24 @@
 #!/usr/bin/python3
-"""Defines a function that multiplies all elements of a matrix.
-
-Attributes:
-    m_a (matrix)
-    m_b (matrix)
+"""
+This module defines a matrix multiplication function called matrix_mul.
 """
 
 
 def matrix_mul(m_a, m_b):
-    """Multiplies two matrices.
+    """Multiplies two matrices and returns the resulting matrix.
 
     Args:
-        m_a (matrix): first matrix.
-        m_b (matrix): second matrix.
+        m_a (list): First matrix.
+        m_b (list): Second matrix.
 
-    Raises:
-        TypeError: If m_a or m_b is not a list.
-        TypeError: If m_a or m_b is not a list of lists.
-        TypeError: If one element of those list of lists is not an integer
-        or a float.
-        ValueError: If m_a or m_b is empty.
-        TypeError: If m_a or m_b is not a rectangle (all ‘rows’ should be,
-        of the same size).
-        ValueError: If m_a and m_b can’t be multiplied.
+   Raises:
+        TypeError: If m_a or m_b is not a list or a list of lists.
+        TypeError: If an element of a list of lists is not an int or a float.
+        ValueError: If m_a or m_b is empty, or can't be multiplied.
+        TypeError: If m_a or m_b not rectangular (rows should be same size).
 
     Returns:
-        matrrix: Product of the two matrices.
+        list: The product of the two matrices.
     """
     lists_err = "{} must be a list of lists"
     empty_err = "{} can't be empty"
