@@ -3,10 +3,13 @@
 #include <Python.h>
 
 /**
- * print_python_string - Function that prints strings in Python
- * @p: Pointer to python object.
+ * print_python_string - Print information about a Python string object.
+ * @p: Pointer to the Python object.
  *
- * Return: No return.
+ * This function prints information about the given Python string object.
+ * It checks if the object is a valid string object and prints its type.
+ * It then determines if the string is a compact ascii string or a compact unicode string.
+ * It then prints the length and the value of the string.
  */
 void print_python_string(PyObject *p)
 {
