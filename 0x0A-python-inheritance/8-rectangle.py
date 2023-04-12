@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains the class BaseGeometry and subclass Rectangle
+This module features a function called is_same_class
 """
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
