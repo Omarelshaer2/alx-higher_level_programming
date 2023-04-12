@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains the class BaseGeometry
+This module features a function called is_same_class
 """
 
 
