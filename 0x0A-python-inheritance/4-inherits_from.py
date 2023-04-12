@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains the inherits_from function
+This module features a function called is_same_class
 """
 
 
