@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" add_attribute module """
+""" This function called is_same_class """
 
 
 def add_attribute(prmObject, prmName, prmValue):
