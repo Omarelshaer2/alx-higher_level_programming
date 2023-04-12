@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains the is_kind_of_class function
+This module features a function called is_same_class
 """
 
 
