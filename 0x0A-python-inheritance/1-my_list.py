@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-contains the MyList class
+implementation of the MyList class in Python
 """
 
 
