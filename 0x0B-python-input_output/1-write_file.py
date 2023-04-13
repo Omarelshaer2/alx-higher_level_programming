@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Module that contains a function that writes to a text file
-"""
+""" Element that encompasses a text file writing function. """
 
 
 def write_file(filename="", text=""):
