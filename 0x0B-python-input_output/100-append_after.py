@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module that executes a function that appends a line """
+""" module performs execution of function designed to add new line to existing file. """
 
 
 def append_after(filename="", search_string="", new_string=""):
