@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Module that contains a function that appends to a text file
-"""
+""" Unit that houses a subroutine for appending data to a text file. """
 
 
 def append_write(filename="", text=""):
