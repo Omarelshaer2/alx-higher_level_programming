@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" Module that returns the dictionary description with a simple
-data structure for a JSON serialization of an object
+""" A module that provides a function to generate a dictionary-based
+description using a basic data structure for serializing an object in JSON format
 """
 
 
