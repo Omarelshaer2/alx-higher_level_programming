@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module for loading, adding, and saving arguments to a Python list as JSON"""
 from sys import argv
-
 # Importing the required functions to handle JSON file loading and saving
 load_file = __import__('6-load_from_json_file').load_from_json_file
 save_file = __import__('5-save_to_json_file').save_to_json_file
@@ -18,3 +17,4 @@ for item in argv[1:]:
 
 # Serialize the updated list as JSON and save it to 'add_item.json
 save_file(json_list, 'add_item.json')
+
