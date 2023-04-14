@@ -18,4 +18,3 @@ for item in argv[1:]:
 
 # Serialize the updated list as JSON and save it to 'add_item.json
 save_file(json_list, 'add_item.json')
-
