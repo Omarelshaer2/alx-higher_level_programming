@@ -3,14 +3,14 @@
 import sys
 
 status_codes = {
-    '200': 0,  # Capture count of occurrences where HTTP 200 status received
-    '301': 0,  # Capture count of occurrences where HTTP 200 status received
-    '400': 0,  # Capture count of occurrences where HTTP 200 status received
-    '401': 0,  # Capture count of occurrences where HTTP 200 status received
-    '403': 0,  # Capture count of occurrences where HTTP 200 status received
-    '404': 0,  # Capture count of occurrences where HTTP 200 status received
-    '405': 0,  # Capture count of occurrences where HTTP 200 status received
-    '500': 0   # Capture count of occurrences where HTTP 200 status received
+    '200': 0,  # Keep track of occurrences of HTTP 200 status code
+    '301': 0,  # Keep track of occurrences of HTTP 301 status code
+    '400': 0,  # Keep track of occurrences of HTTP 400 status code
+    '401': 0,  # Keep track of occurrences of HTTP 401 status code
+    '403': 0,  # Keep track of occurrences of HTTP 403 status code
+    '404': 0,  # Keep track of occurrences of HTTP 404 status code
+    '405': 0,  # Keep track of occurrences of HTTP 405 status code
+    '500': 0   # Keep track of occurrences of HTTP 500 status code
 }
 
 lc = 0  # Line counter
@@ -54,4 +54,3 @@ try:
 except KeyboardInterrupt:
     print_info()
     raise
-    
