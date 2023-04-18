@@ -18,7 +18,7 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Define a property setter for
         the width of the Rectangle class. The
-        method takes an integer argument "value". If the 
+        method takes an integer argument "value". If the
         width is not an integer, raise a TypeError. If
         the width is less than or equal to zero,
         raise a ValueError.
@@ -48,7 +48,7 @@ class Rectangle(Base):
     def width(self, value):
         """Define a property setter for the width of the Rectangle
         class. The method takes an integer argument "value".
-        If the width is not an integer, raise a TypeError. 
+        If the width is not an integer, raise a TypeError
         If the width is less than or equal to zero, raise a ValueError.
         """
         if not isinstance(value, int):
@@ -187,4 +187,4 @@ class Rectangle(Base):
         dict["x"] = self.x
         dict["y"] = self.y
         return (dict)
-    
+

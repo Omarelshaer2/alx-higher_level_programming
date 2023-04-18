@@ -78,7 +78,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Return an instance with all attributes already set. 
+        """Return an instance with all attributes already set
         The method takes a dictionary and a class argument "cls".
         To assign all attributes, create a dummy instance of the
         class and use the update method to apply your real values.
