@@ -78,24 +78,12 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Returns an instance with all attributes already set.
-
-        Args:
-            dictionary (dict): double pointer to a dictionary.
-            cls (any): class.
-
-        To use the update method to assign all attributes, you must,
-        create a “dummy” instance before:
-        Create a Rectangle or Square instance with “dummy” mandatory,
-        attributes (width, height, size, etc.),
-        Call update instance method to this “dummy” instance to apply your,
-        real values.
-        You must use the method def update(self, *args, **kwargs).
-        **dictionary must be used as **kwargs of the method update.
-        You are not allowed to use eval.
-
-        Returns:
-            list: an instance with all attributes already set.
+        """Return an instance with all attributes already set. 
+        The method takes a dictionary and a class argument "cls".
+        To assign all attributes, create a dummy instance of the
+        class and use the update method to apply your real values.
+        The update method should take **dictionary as
+        **kwargs. You cannot use eval.
         """
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
@@ -108,18 +96,11 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Returns a list of instances.
-
-        If the file doesn’t exist, return an empty list.
-        Otherwise, return a list of instances - the type of these instances,
-        depends on cls (current class using this method).
-        You must use the from_json_string and create methods (implemented,
-        previously).
-        Args:
-            cls (any): class.
-
-        Returns:
-            list: list of instances.
+        """ Return a list of instances. If the file doesn't exist,
+        return an empty list. Otherwise, use the from_json_string and
+        create methods to return a list of instances, with the type
+        of instances depending on the class calling this method.
+        The method takes a class argument "cls"
         """
         filename = "{}.json".format(cls.__name__)
 
@@ -139,7 +120,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Serializes a list of rectangles or squares in csv.
+        """Serialize a list of rectangles or squares in CSV format.
 
         Args:
             cls (any): class.
@@ -157,7 +138,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """deserializes a list of rectangles or squares in csv.
+        """ Deserialize a list of rectangles or squares in CSV format.
 
         Args:
             cls (any): class.
@@ -183,11 +164,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ Opens a window and draws all the Rectangles and Squares
-
-        NOT COMPLETE!!!!!!
-
-        """
+        """Open a window and draw all Rectangles and Squares"""
         window = turtle.Screen()
         turtle.speed(5)
         turtle.pensize(5)
