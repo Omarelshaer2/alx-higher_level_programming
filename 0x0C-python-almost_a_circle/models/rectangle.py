@@ -16,14 +16,12 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Creates new instances of rectangle.
-
-        Args:
-            width (int): width of rectangle.
-            height (int): height of rectangle.
-            x (int, optional): x. Defaults to 0.
-            y (int, optional): y. Defaults to 0.
-            id (int, optional): Identity number of rectangle. Defaults to None.
+        """Define a property setter for
+        the width of the Rectangle class. The
+        method takes an integer argument "value". If the 
+        width is not an integer, raise a TypeError. If
+        the width is less than or equal to zero,
+        raise a ValueError.
         """
         self.width = width
         self.height = height
@@ -48,14 +46,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """Property setter for width of rectangle.
-
-        Args:
-            value (int): width of rectangle.
-
-        Raises:
-            TypeError: if width is not an integer.
-            ValueError: if width is less than or equal to zero.
+        """Define a property setter for the width of the Rectangle
+        class. The method takes an integer argument "value".
+        If the width is not an integer, raise a TypeError. 
+        If the width is less than or equal to zero, raise a ValueError.
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
