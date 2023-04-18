@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a class BaseModelTest"""
+"""Define the BaseModelTest class."""
 
 
 import json
@@ -11,7 +11,7 @@ from models.square import Square
 
 
 class TestBaseMethods(unittest.TestCase):
-    """ Defines tests for Base class """
+    """ DDefine tests for the Base class. """
 
     def setUp(self):
         """ Runs for each test """
@@ -19,19 +19,19 @@ class TestBaseMethods(unittest.TestCase):
         self.new_base = Base(id=1)
 
     def tearDown(self):
-        """ Cleans up after each test """
+        """ Perform test cleanup after each test. """
         pass
 
     def test_check_instance_variables(self):
-        """ Checks instance variables """
+        """ Test instance variables. """
         self.assertEqual(self.new_base.id, 1)
 
     def test_docstring(self):
-        """ Test if docstring is present """
+        """ Check for presence of docstring during testing. """
         self.assertIsNotNone(Base.__doc__)
 
     def test_randos_id(self):
-        """ Test random arguments passed """
+        """ Test passing random arguments. """
         test1 = Base(7)
         self.assertEqual(test1.id, 7)
         test2 = Base(24)
@@ -48,7 +48,7 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(b1.id + 1, b2.id)
 
     def test_0_id(self):
-        """ Test id to see if it duplicates """
+        """ Verify whether the ID duplicates during testing. """
         Base._Base__nb_objects = 0
         b1 = Base()
         b2 = Base()
@@ -69,7 +69,7 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(str(e.exception), msg)
 
     def test_constructor_args_2(self):
-        """ Tests constructor signature with 2 notself args """
+        """ Test the constructor signature using two arguments """
         with self.assertRaises(TypeError) as e:
             Base.__init__(self, 1, 2)
         msg = "__init__() takes from 1 to 2 positional arguments but 3 \
@@ -77,7 +77,7 @@ were given"
         self.assertEqual(str(e.exception), msg)
 
     def test_to_json_string(self):
-        """ Test to_json_string method """
+        """ Verify the functionality of the to_json_string function."""
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(11, 1, 3, 4)
         dict1 = r1.to_dictionary()
@@ -98,7 +98,7 @@ were given"
         self.assertEqual(d, [dict1, dict2])
 
     def test_from_json_string(self):
-        """ Test from_json_string method """
+        """ Evaluate the from_json_string function. """
         self.assertEqual(Base.from_json_string(""), [])
         self.assertEqual(Base.from_json_string(None), [])
         list_input = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
@@ -109,13 +109,13 @@ were given"
         self.assertTrue(type(list_output), list)
 
     def test_save_to_file_1(self):
-        """ Test save_to_file_method with empty_file """
+        """ test save_to_file function with empty file parameter. """
         Rectangle.save_to_file([])
         with open("Rectangle.json", mode="r") as myFile:
             self.assertEqual([], json.load(myFile))
 
     def test_save_to_file_2(self):
-        """ Test save_to_file method with None as file """
+        """ Test save_to_file function using None value as file parameter """
         Rectangle.save_to_file(None)
         with open("Rectangle.json", mode="r") as myFile:
             self.assertEqual([], json.load(myFile))
@@ -174,7 +174,7 @@ were given"
             self.assertEqual(len(file.read()), 38)
 
     def test_load_from_file(self):
-        """Test load_from_file method """
+        """ Evaluate the load_from_file function """
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         list_in = [r1, r2]
@@ -196,7 +196,7 @@ were given"
         self.assertEqual(str(list_in[1]), str(list_out[1]))
 
     def test_load_from_file_empty_file(self):
-        """ Test use of load_from_file with empty file """
+        """ utilize load_from_file with an empty file for testing """
         try:
             os.remove("Rectangle.json")
         except Exception:
