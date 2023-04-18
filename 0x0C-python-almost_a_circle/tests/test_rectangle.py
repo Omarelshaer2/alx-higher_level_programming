@@ -11,7 +11,7 @@ from models.rectangle import Rectangle
 
 
 class TestRectangleMethods(unittest.TestCase):
-    """ Defines tests for Rectangle class """
+    """  Define tests for the Rectangle class. """
 
     @classmethod
     def setUp(self):
@@ -47,7 +47,7 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertTrue(issubclass(Rectangle, Base))
 
     def test_arg_passed(self):
-        """ Test for passing one or no argument """
+        """ Test passing one or no argument. """
         with self.assertRaises(TypeError):
             Rectangle(20)
             Rectangle()
@@ -114,7 +114,7 @@ and 'height'"
         self.assertEqual(r3.area(), 8 * 7)
 
     def test_area_2(self):
-        """ Checking the return value of area method """
+        """ Verify the return value of the area method. """
         r1 = Rectangle(2, 2)
         self.assertEqual(r1.area(), 4)
         r1.width = 5
@@ -200,7 +200,7 @@ and 'height'"
             self.assertEqual(str_out.getvalue(), result)
 
     def test_str_no_args(self):
-        """ Test __str__ return value with no arguments """
+        """Test the return value of str with no arguments"""
         r = Rectangle(5, 2)
         with self.assertRaises(TypeError) as e:
             Rectangle.__str__()
@@ -236,7 +236,7 @@ and 'height'"
         self.assertEqual(str(r), "[Rectangle] (89) 6/8 - 9/7")
 
     def test_to_dictonary_1(self):
-        """test to see if to_dictionary method is working"""
+        """Verify the functionality of the to_dictionary method."""
         r1 = Rectangle(10, 2, 1, 9)
         d1 = r1.to_dictionary()
         j1 = {'id': 1, 'width': 10, 'height': 2, 'x': 1, 'y': 9}
@@ -249,13 +249,13 @@ and 'height'"
         self.assertEqual(type(d2), dict)
 
     def test_save_to_file_1(self):
-        """ Test save_to_file_method with empty_file """
+        """  Test save_to_file method with an empty file parameter. """
         Rectangle.save_to_file([])
         with open("Rectangle.json", mode="r") as myFile:
             self.assertEqual([], json.load(myFile))
 
     def test_save_to_file_2(self):
-        """ Test save_to_file method with None as file """
+        """ Test save_to_file method with None as the file parameter. """
         Rectangle.save_to_file(None)
         with open("Rectangle.json", mode="r") as myFile:
             self.assertEqual([], json.load(myFile))
@@ -278,7 +278,7 @@ and 'height'"
         self.assertNotEqual(r1, r2)
 
     def test_load_from_file_1(self):
-        """ Test load from file if file non-existent """
+        """ Test load_from_file with a nonexistent file. """
         r1 = Rectangle(1, 1)
         r2 = Rectangle(2, 2)
         Rectangle.save_to_file([r1, r2])
